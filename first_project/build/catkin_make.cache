@@ -1,0 +1,2 @@
+first_package
+-DCATKIN_DEVEL_PREFIX=/home/admin1/Project/ROS_Learn/first_project/devel -DCMAKE_INSTALL_PREFIX=/home/admin1/Project/ROS_Learn/first_project/install -G Unix Makefiles

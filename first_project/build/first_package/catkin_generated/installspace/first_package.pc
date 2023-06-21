@@ -3,6 +3,6 @@ prefix=/home/admin1/Project/ROS_Learn/first_project/install
 Name: first_package
 Description: Description of first_package
 Version: 0.0.0
-Cflags: 
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: roscpp rospy std_msgs message_runtime

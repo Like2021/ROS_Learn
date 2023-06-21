@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     int count = 0;
 
     // 发布逻辑
-    // 参数配合前面的最大消息数，代表1秒10次
     ros::Rate r(1);
 
     // 只要节点没被关闭，循环发布

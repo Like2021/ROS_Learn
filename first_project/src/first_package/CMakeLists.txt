@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.0.2)
-project(first_package)
+cmake_minimum_required(VERSION 3.0.2)  # 所需 cmake 版本
+project(first_package)  #包名称，会被 ${PROJECT_NAME} 的方式调用
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -7,10 +7,12 @@ project(first_package)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+# 设置构建所需要的软件包
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,18 +49,18 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+# 配置 msg 源文件
+add_message_files(
+  FILES
+  Person.msg
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+# 配置 srv 源文件
+add_service_files(
+  FILES
+  nums.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -68,10 +70,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -102,10 +104,11 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
+# 运行时依赖
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES first_package
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -115,6 +118,7 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+# 添加头文件路径，当前程序包的头文件路径位于其他文件路径之前
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
@@ -133,7 +137,14 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+# 声明 C++ 可执行文件
 add_executable(helloworld src/helloworld.cpp)
+add_executable(Hello_pub src/first_pub.cpp)
+add_executable(Hello_sub src/first_sub.cpp)
+add_executable(person_talker src/msg_pub.cpp)
+add_executable(person_listener src/msg_sub.cpp)
+add_executable(geometry_control src/geometry_pub.cpp)
+add_executable(pose_sub src/geometry_sub.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -144,15 +155,32 @@ add_executable(helloworld src/helloworld.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(person_talker ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(person_listener ${PROJECT_NAME}_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
+#指定库、可执行文件的链接库
 target_link_libraries(helloworld
   ${catkin_LIBRARIES}
 )
-
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(Hello_pub
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Hello_sub
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(person_talker
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(person_listener
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(geometry_control
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(pose_sub
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##

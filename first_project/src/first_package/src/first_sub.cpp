@@ -12,4 +12,16 @@ void doMsg(const std_msgs::String::ConstPtr& msg_p)
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL, "");
+    // 2.初始化ROS节点，命名唯一
+    ros::init(argc, argv, "listener");
+    // 3.实例化ROS句柄
+    ros::NodeHandle nh;
+
+    // 4.实例化订阅者对象
+    ros::Subscriber sub = nh.subscribe<std_msgs::String>("chatter", 10, doMsg);
+
+    // 设置循环调用回调函数
+    ros::spin();
+
+    return 0;
 }

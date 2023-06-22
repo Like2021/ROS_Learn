@@ -70,6 +70,7 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
+# 生成消息时依赖于 std_msgs
 generate_messages(
   DEPENDENCIES
   std_msgs
@@ -145,6 +146,14 @@ add_executable(person_talker src/msg_pub.cpp)
 add_executable(person_listener src/msg_sub.cpp)
 add_executable(geometry_control src/geometry_pub.cpp)
 add_executable(pose_sub src/geometry_sub.cpp)
+add_executable(AddInts_Server src/srv_server.cpp)
+add_executable(AddInts_Client src/srv_client.cpp)
+add_executable(Set_Updata_Param src/setParam.cpp)
+add_executable(Get_Param src/getParam.cpp)
+add_executable(Delete_Param src/delParam.cpp)
+add_executable(Add_MyTurtle src/set_client.cpp)
+add_executable(Set_RGB src/setRgb_param.cpp)
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -157,6 +166,8 @@ add_executable(pose_sub src/geometry_sub.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(person_talker ${PROJECT_NAME}_generate_messages_cpp)
 add_dependencies(person_listener ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(AddInts_Server ${PROJECT_NAME}_gencpp)
+add_dependencies(AddInts_Client ${PROJECT_NAME}_gencpp)
 
 ## Specify libraries to link a library or executable target against
 #指定库、可执行文件的链接库
@@ -179,6 +190,27 @@ target_link_libraries(geometry_control
   ${catkin_LIBRARIES}
 )
 target_link_libraries(pose_sub
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(AddInts_Server
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(AddInts_Client
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Set_Updata_Param
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Get_Param
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Delete_Param
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Add_MyTurtle
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Set_RGB
   ${catkin_LIBRARIES}
 )
 

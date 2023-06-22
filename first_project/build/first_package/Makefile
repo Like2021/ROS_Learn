@@ -68,6 +68,16 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -79,16 +89,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -166,6 +166,66 @@ preinstall/fast:
 depend:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+first_package/CMakeFiles/Add_MyTurtle.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Add_MyTurtle.dir/rule
+.PHONY : first_package/CMakeFiles/Add_MyTurtle.dir/rule
+
+# Convenience name for target.
+Add_MyTurtle: first_package/CMakeFiles/Add_MyTurtle.dir/rule
+
+.PHONY : Add_MyTurtle
+
+# fast build rule for target.
+Add_MyTurtle/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Add_MyTurtle.dir/build.make first_package/CMakeFiles/Add_MyTurtle.dir/build
+.PHONY : Add_MyTurtle/fast
+
+# Convenience name for target.
+first_package/CMakeFiles/Delete_Param.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Delete_Param.dir/rule
+.PHONY : first_package/CMakeFiles/Delete_Param.dir/rule
+
+# Convenience name for target.
+Delete_Param: first_package/CMakeFiles/Delete_Param.dir/rule
+
+.PHONY : Delete_Param
+
+# fast build rule for target.
+Delete_Param/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Delete_Param.dir/build.make first_package/CMakeFiles/Delete_Param.dir/build
+.PHONY : Delete_Param/fast
+
+# Convenience name for target.
+first_package/CMakeFiles/Set_Updata_Param.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Set_Updata_Param.dir/rule
+.PHONY : first_package/CMakeFiles/Set_Updata_Param.dir/rule
+
+# Convenience name for target.
+Set_Updata_Param: first_package/CMakeFiles/Set_Updata_Param.dir/rule
+
+.PHONY : Set_Updata_Param
+
+# fast build rule for target.
+Set_Updata_Param/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_Updata_Param.dir/build.make first_package/CMakeFiles/Set_Updata_Param.dir/build
+.PHONY : Set_Updata_Param/fast
+
+# Convenience name for target.
+first_package/CMakeFiles/AddInts_Server.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/AddInts_Server.dir/rule
+.PHONY : first_package/CMakeFiles/AddInts_Server.dir/rule
+
+# Convenience name for target.
+AddInts_Server: first_package/CMakeFiles/AddInts_Server.dir/rule
+
+.PHONY : AddInts_Server
+
+# fast build rule for target.
+AddInts_Server/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Server.dir/build.make first_package/CMakeFiles/AddInts_Server.dir/build
+.PHONY : AddInts_Server/fast
 
 # Convenience name for target.
 first_package/CMakeFiles/pose_sub.dir/rule:
@@ -301,6 +361,21 @@ roscpp_generate_messages_nodejs: first_package/CMakeFiles/roscpp_generate_messag
 roscpp_generate_messages_nodejs/fast:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make first_package/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 .PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+first_package/CMakeFiles/Get_Param.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Get_Param.dir/rule
+.PHONY : first_package/CMakeFiles/Get_Param.dir/rule
+
+# Convenience name for target.
+Get_Param: first_package/CMakeFiles/Get_Param.dir/rule
+
+.PHONY : Get_Param
+
+# fast build rule for target.
+Get_Param/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Get_Param.dir/build.make first_package/CMakeFiles/Get_Param.dir/build
+.PHONY : Get_Param/fast
 
 # Convenience name for target.
 first_package/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -543,6 +618,21 @@ first_package_geneus/fast:
 .PHONY : first_package_geneus/fast
 
 # Convenience name for target.
+first_package/CMakeFiles/Set_RGB.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Set_RGB.dir/rule
+.PHONY : first_package/CMakeFiles/Set_RGB.dir/rule
+
+# Convenience name for target.
+Set_RGB: first_package/CMakeFiles/Set_RGB.dir/rule
+
+.PHONY : Set_RGB
+
+# fast build rule for target.
+Set_RGB/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_RGB.dir/build.make first_package/CMakeFiles/Set_RGB.dir/build
+.PHONY : Set_RGB/fast
+
+# Convenience name for target.
 first_package/CMakeFiles/Hello_sub.dir/rule:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/Hello_sub.dir/rule
 .PHONY : first_package/CMakeFiles/Hello_sub.dir/rule
@@ -571,6 +661,21 @@ first_package_generate_messages_lisp: first_package/CMakeFiles/first_package_gen
 first_package_generate_messages_lisp/fast:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/first_package_generate_messages_lisp.dir/build.make first_package/CMakeFiles/first_package_generate_messages_lisp.dir/build
 .PHONY : first_package_generate_messages_lisp/fast
+
+# Convenience name for target.
+first_package/CMakeFiles/AddInts_Client.dir/rule:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f CMakeFiles/Makefile2 first_package/CMakeFiles/AddInts_Client.dir/rule
+.PHONY : first_package/CMakeFiles/AddInts_Client.dir/rule
+
+# Convenience name for target.
+AddInts_Client: first_package/CMakeFiles/AddInts_Client.dir/rule
+
+.PHONY : AddInts_Client
+
+# fast build rule for target.
+AddInts_Client/fast:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Client.dir/build.make first_package/CMakeFiles/AddInts_Client.dir/build
+.PHONY : AddInts_Client/fast
 
 # Convenience name for target.
 first_package/CMakeFiles/first_package_genlisp.dir/rule:
@@ -692,6 +797,33 @@ first_package_generate_messages_py/fast:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/first_package_generate_messages_py.dir/build.make first_package/CMakeFiles/first_package_generate_messages_py.dir/build
 .PHONY : first_package_generate_messages_py/fast
 
+src/delParam.o: src/delParam.cpp.o
+
+.PHONY : src/delParam.o
+
+# target to build an object file
+src/delParam.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Delete_Param.dir/build.make first_package/CMakeFiles/Delete_Param.dir/src/delParam.cpp.o
+.PHONY : src/delParam.cpp.o
+
+src/delParam.i: src/delParam.cpp.i
+
+.PHONY : src/delParam.i
+
+# target to preprocess a source file
+src/delParam.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Delete_Param.dir/build.make first_package/CMakeFiles/Delete_Param.dir/src/delParam.cpp.i
+.PHONY : src/delParam.cpp.i
+
+src/delParam.s: src/delParam.cpp.s
+
+.PHONY : src/delParam.s
+
+# target to generate assembly for a file
+src/delParam.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Delete_Param.dir/build.make first_package/CMakeFiles/Delete_Param.dir/src/delParam.cpp.s
+.PHONY : src/delParam.cpp.s
+
 src/first_pub.o: src/first_pub.cpp.o
 
 .PHONY : src/first_pub.o
@@ -800,6 +932,33 @@ src/geometry_sub.cpp.s:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/pose_sub.dir/build.make first_package/CMakeFiles/pose_sub.dir/src/geometry_sub.cpp.s
 .PHONY : src/geometry_sub.cpp.s
 
+src/getParam.o: src/getParam.cpp.o
+
+.PHONY : src/getParam.o
+
+# target to build an object file
+src/getParam.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Get_Param.dir/build.make first_package/CMakeFiles/Get_Param.dir/src/getParam.cpp.o
+.PHONY : src/getParam.cpp.o
+
+src/getParam.i: src/getParam.cpp.i
+
+.PHONY : src/getParam.i
+
+# target to preprocess a source file
+src/getParam.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Get_Param.dir/build.make first_package/CMakeFiles/Get_Param.dir/src/getParam.cpp.i
+.PHONY : src/getParam.cpp.i
+
+src/getParam.s: src/getParam.cpp.s
+
+.PHONY : src/getParam.s
+
+# target to generate assembly for a file
+src/getParam.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Get_Param.dir/build.make first_package/CMakeFiles/Get_Param.dir/src/getParam.cpp.s
+.PHONY : src/getParam.cpp.s
+
 src/helloworld.o: src/helloworld.cpp.o
 
 .PHONY : src/helloworld.o
@@ -881,6 +1040,141 @@ src/msg_sub.cpp.s:
 	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/person_listener.dir/build.make first_package/CMakeFiles/person_listener.dir/src/msg_sub.cpp.s
 .PHONY : src/msg_sub.cpp.s
 
+src/setParam.o: src/setParam.cpp.o
+
+.PHONY : src/setParam.o
+
+# target to build an object file
+src/setParam.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_Updata_Param.dir/build.make first_package/CMakeFiles/Set_Updata_Param.dir/src/setParam.cpp.o
+.PHONY : src/setParam.cpp.o
+
+src/setParam.i: src/setParam.cpp.i
+
+.PHONY : src/setParam.i
+
+# target to preprocess a source file
+src/setParam.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_Updata_Param.dir/build.make first_package/CMakeFiles/Set_Updata_Param.dir/src/setParam.cpp.i
+.PHONY : src/setParam.cpp.i
+
+src/setParam.s: src/setParam.cpp.s
+
+.PHONY : src/setParam.s
+
+# target to generate assembly for a file
+src/setParam.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_Updata_Param.dir/build.make first_package/CMakeFiles/Set_Updata_Param.dir/src/setParam.cpp.s
+.PHONY : src/setParam.cpp.s
+
+src/setRgb_param.o: src/setRgb_param.cpp.o
+
+.PHONY : src/setRgb_param.o
+
+# target to build an object file
+src/setRgb_param.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_RGB.dir/build.make first_package/CMakeFiles/Set_RGB.dir/src/setRgb_param.cpp.o
+.PHONY : src/setRgb_param.cpp.o
+
+src/setRgb_param.i: src/setRgb_param.cpp.i
+
+.PHONY : src/setRgb_param.i
+
+# target to preprocess a source file
+src/setRgb_param.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_RGB.dir/build.make first_package/CMakeFiles/Set_RGB.dir/src/setRgb_param.cpp.i
+.PHONY : src/setRgb_param.cpp.i
+
+src/setRgb_param.s: src/setRgb_param.cpp.s
+
+.PHONY : src/setRgb_param.s
+
+# target to generate assembly for a file
+src/setRgb_param.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Set_RGB.dir/build.make first_package/CMakeFiles/Set_RGB.dir/src/setRgb_param.cpp.s
+.PHONY : src/setRgb_param.cpp.s
+
+src/set_client.o: src/set_client.cpp.o
+
+.PHONY : src/set_client.o
+
+# target to build an object file
+src/set_client.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Add_MyTurtle.dir/build.make first_package/CMakeFiles/Add_MyTurtle.dir/src/set_client.cpp.o
+.PHONY : src/set_client.cpp.o
+
+src/set_client.i: src/set_client.cpp.i
+
+.PHONY : src/set_client.i
+
+# target to preprocess a source file
+src/set_client.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Add_MyTurtle.dir/build.make first_package/CMakeFiles/Add_MyTurtle.dir/src/set_client.cpp.i
+.PHONY : src/set_client.cpp.i
+
+src/set_client.s: src/set_client.cpp.s
+
+.PHONY : src/set_client.s
+
+# target to generate assembly for a file
+src/set_client.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/Add_MyTurtle.dir/build.make first_package/CMakeFiles/Add_MyTurtle.dir/src/set_client.cpp.s
+.PHONY : src/set_client.cpp.s
+
+src/srv_client.o: src/srv_client.cpp.o
+
+.PHONY : src/srv_client.o
+
+# target to build an object file
+src/srv_client.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Client.dir/build.make first_package/CMakeFiles/AddInts_Client.dir/src/srv_client.cpp.o
+.PHONY : src/srv_client.cpp.o
+
+src/srv_client.i: src/srv_client.cpp.i
+
+.PHONY : src/srv_client.i
+
+# target to preprocess a source file
+src/srv_client.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Client.dir/build.make first_package/CMakeFiles/AddInts_Client.dir/src/srv_client.cpp.i
+.PHONY : src/srv_client.cpp.i
+
+src/srv_client.s: src/srv_client.cpp.s
+
+.PHONY : src/srv_client.s
+
+# target to generate assembly for a file
+src/srv_client.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Client.dir/build.make first_package/CMakeFiles/AddInts_Client.dir/src/srv_client.cpp.s
+.PHONY : src/srv_client.cpp.s
+
+src/srv_server.o: src/srv_server.cpp.o
+
+.PHONY : src/srv_server.o
+
+# target to build an object file
+src/srv_server.cpp.o:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Server.dir/build.make first_package/CMakeFiles/AddInts_Server.dir/src/srv_server.cpp.o
+.PHONY : src/srv_server.cpp.o
+
+src/srv_server.i: src/srv_server.cpp.i
+
+.PHONY : src/srv_server.i
+
+# target to preprocess a source file
+src/srv_server.cpp.i:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Server.dir/build.make first_package/CMakeFiles/AddInts_Server.dir/src/srv_server.cpp.i
+.PHONY : src/srv_server.cpp.i
+
+src/srv_server.s: src/srv_server.cpp.s
+
+.PHONY : src/srv_server.s
+
+# target to generate assembly for a file
+src/srv_server.cpp.s:
+	cd /home/admin1/Project/ROS_Learn/first_project/build && $(MAKE) -f first_package/CMakeFiles/AddInts_Server.dir/build.make first_package/CMakeFiles/AddInts_Server.dir/src/srv_server.cpp.s
+.PHONY : src/srv_server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -888,9 +1182,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... Add_MyTurtle"
+	@echo "... install"
+	@echo "... Delete_Param"
 	@echo "... edit_cache"
+	@echo "... Set_Updata_Param"
+	@echo "... AddInts_Server"
 	@echo "... pose_sub"
 	@echo "... geometry_control"
 	@echo "... Hello_pub"
@@ -902,6 +1200,7 @@ help:
 	@echo "... test"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... Get_Param"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... helloworld"
@@ -919,8 +1218,10 @@ help:
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... first_package_gencpp"
 	@echo "... first_package_geneus"
+	@echo "... Set_RGB"
 	@echo "... Hello_sub"
 	@echo "... first_package_generate_messages_lisp"
+	@echo "... AddInts_Client"
 	@echo "... first_package_genlisp"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... first_package_generate_messages_nodejs"
@@ -929,6 +1230,9 @@ help:
 	@echo "... first_package_genpy"
 	@echo "... person_listener"
 	@echo "... first_package_generate_messages_py"
+	@echo "... src/delParam.o"
+	@echo "... src/delParam.i"
+	@echo "... src/delParam.s"
 	@echo "... src/first_pub.o"
 	@echo "... src/first_pub.i"
 	@echo "... src/first_pub.s"
@@ -941,6 +1245,9 @@ help:
 	@echo "... src/geometry_sub.o"
 	@echo "... src/geometry_sub.i"
 	@echo "... src/geometry_sub.s"
+	@echo "... src/getParam.o"
+	@echo "... src/getParam.i"
+	@echo "... src/getParam.s"
 	@echo "... src/helloworld.o"
 	@echo "... src/helloworld.i"
 	@echo "... src/helloworld.s"
@@ -950,6 +1257,21 @@ help:
 	@echo "... src/msg_sub.o"
 	@echo "... src/msg_sub.i"
 	@echo "... src/msg_sub.s"
+	@echo "... src/setParam.o"
+	@echo "... src/setParam.i"
+	@echo "... src/setParam.s"
+	@echo "... src/setRgb_param.o"
+	@echo "... src/setRgb_param.i"
+	@echo "... src/setRgb_param.s"
+	@echo "... src/set_client.o"
+	@echo "... src/set_client.i"
+	@echo "... src/set_client.s"
+	@echo "... src/srv_client.o"
+	@echo "... src/srv_client.i"
+	@echo "... src/srv_client.s"
+	@echo "... src/srv_server.o"
+	@echo "... src/srv_server.i"
+	@echo "... src/srv_server.s"
 .PHONY : help
 
 
